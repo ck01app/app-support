@@ -8,7 +8,7 @@
 ---
 
 ## Need Support?
-If you have any questions, face bugs, or want to request a feature, please reach out to us via email. We usually respond within 24–48 hours.
+If you have any questions, face bugs, or want to request a feature, please reach out to me via email. I usually respond within 24–48 hours.
 
 📥 **Contact Email:** [ck01app@gmail.com](mailto:ck01@gmail.com)
 
