@@ -1,6 +1,6 @@
 # App Support
 
-Welcome to our mobile applications support page. 
+Welcome to my mobile applications support page. 
 
 ## Our Apps
 * 📱 **Lucky Ghost Leg** (iOS & Android)
