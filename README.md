@@ -1,9 +1,11 @@
 ## Welcome to my mobile applications support page. 
 
 ## Our Apps
-* 📱 **Lucky Ghost Leg** (iOS & Android)
-* 📱 **Rolling Dices** (Android)
-* 📱 **MarkSix AI&Luck** (iOS)
+* 📱 **Lucky Ghostleg （幸運鬼腳圖）** (iOS & Android)
+* 📱 **Rolling Dices （搖骰子）** (Android)
+* 📱 **MarkSix AI&Luck （智運贏六合彩）** (iOS & Android)
+* 📱 **GravityTicTacToe （地心吸力過三關）** (iOS & Android)
+* 📱 **Connect369 （三六九連連連）** (iOS & Android)
 
 ---
 
