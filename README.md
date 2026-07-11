@@ -1,7 +1,7 @@
 ## Welcome to my mobile applications support page. 
 
 ## My Apps
-* 📱 **Lucky Ghostleg （幸運鬼腳圖）** (iOS & Android)<br>
+* 📱 **Lucky Ghostleg （幸運鬼腳圖）** (iOS & Android)\
    Android Play Store - https://play.google.com/store/apps/details?id=com.ck01app.ghostleggame<br>
    
 * 📱 **Rolling Dices （搖骰子）** (Android)<br>
