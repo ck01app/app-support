@@ -2,14 +2,14 @@
 
 ## My Apps
 * 📱 **Lucky Ghostleg （幸運鬼腳圖）** (iOS & Android)\
-   Android Play Store - https://play.google.com/store/apps/details?id=com.ck01app.ghostleggame<br>
+   https://play.google.com/store/apps/details?id=com.ck01app.ghostleggame\
    
-* 📱 **Rolling Dices （搖骰子）** (Android)<br>
-   Android Play store - https://play.google.com/store/apps/details?id=com.ck01app.rollingdices<br>
+* 📱 **Rolling Dices （搖骰子）** (Android)\
+   https://play.google.com/store/apps/details?id=com.ck01app.rollingdices\
    
-* 📱 **MarkSix AI&Luck （智運贏六合彩）** (iOS & Android)<br>  
-* 📱 **GravityTicTacToe （地心吸力過三關）** (iOS & Android)<br>  
-* 📱 **Connect369 （三六九連連連）** (iOS & Android)<br>  
+* 📱 **MarkSix AI&Luck （智運贏六合彩）** (iOS & Android)\  
+* 📱 **GravityTicTacToe （地心吸力過三關）** (iOS & Android)\  
+* 📱 **Connect369 （三六九連連連）** (iOS & Android)\ 
 
 ---
 
