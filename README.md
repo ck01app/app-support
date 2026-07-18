@@ -1,16 +1,22 @@
 ## Welcome to my mobile applications support page. 
 
 ## My Apps
-* 📱 **Lucky Ghostleg （幸運鬼腳圖）** (iOS & Android)\
-   * [Google Play 下載連結](https://play.google.com/store/apps/details?id=com.ck01app.ghostleggame)
+* 📱 **Lucky Ghostleg （幸運鬼腳圖）** (Android)\
+   * [Google Play Download 下載](https://play.google.com/store/apps/details?id=com.ck01app.ghostleggame)
    
 * 📱 **Rolling Dices （搖骰子）** (Android)\
-   * [Google Play 下載連結](https://play.google.com/store/apps/details?id=com.ck01app.rollingdices) 
+   * [Google Play Download 下載](https://play.google.com/store/apps/details?id=com.ck01app.rollingdices) 
    
-* 📱 **MarkSix AI&Luck （智運贏六合彩）** (iOS & Android)\  
-* 📱 **Gravity TicTacToe （地心吸力過三關）** (iOS & Android)\  
+* 📱 **MarkSix AI&Luck （智運贏六合彩）** (iOS & Android)\
+    
+* 📱 **Gravity TicTacToe （地心吸力過三關）** (iOS & Android)\
+   * [Apple Store Download 下載](https://apps.apple.com/hk/app/g-tictactoe/id6789797153)
+
 * 📱 **Connect369 （三六九連連連）** (iOS & Android)\ 
+   * [Apple Store Download 下載](https://apps.apple.com/hk/app/connect-369/id6789797514)
+
 * 📱 **AI Mind Reader  (AI讀心術）** (iOS & Android)\ 
+
 * 📱 **Speed Solitaire （競速接龍）** (iOS & Android)\ 
 
 ---
