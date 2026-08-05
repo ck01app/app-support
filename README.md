@@ -8,13 +8,16 @@
    * [Google Play Download 下載](https://play.google.com/store/apps/details?id=com.ck01app.rollingdices) 
    
 * 📱 **MarkSix AI&Luck （智運贏六合彩）** (iOS & Android)\
-    
+   * [Google Play Download 下載](https://play.google.com/store/apps/details?id=com.ck01app.zyymarksix)
+         
 * 📱 **Gravity TicTacToe （地心吸力過三關）** (iOS & Android)\
    * [Apple Store Download 下載](https://apps.apple.com/hk/app/g-tictactoe/id6789797153)
-
+   * [Google Play Download 下載](https://play.google.com/store/apps/details?id=com.ck01app.gravitytictactoe)
+     
 * 📱 **Connect369 （三六九連連連）** (iOS & Android)\ 
    * [Apple Store Download 下載](https://apps.apple.com/hk/app/connect-369/id6789797514)
-
+   * [Google Play Download 下載](https://play.google.com/store/apps/details?id=com.ck01app.connect369)
+     
 * 📱 **AI Mind Reader  (AI讀心術）** (iOS & Android)\ 
 
 * 📱 **Speed Solitaire （競速接龍）** (iOS & Android)\ 
