@@ -240,7 +240,12 @@
             color: var(--muted);
             font-style: italic;
         }
-
+        /* Side Stack (Coffee + YouTube) */
+        .side-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
         .coffee-box {
             background: linear-gradient(135deg, #fffbeb, #fef3c7);
             border: 1px solid #fde68a;
@@ -274,6 +279,43 @@
         }
 
         .coffee-btn svg { width: 14px; height: 14px; }
+
+        .youtube-box {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            border: 1px solid #fecaca;
+            border-radius: 12px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 0.5rem;
+        }
+
+        .youtube-box p {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #991b1b;
+        }
+
+        .youtube-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: #dc2626;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.45rem 0.9rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            transition: background 0.15s ease;
+        }
+
+        .youtube-btn:hover { background: #b91c1c; }
+
+        .youtube-btn svg { width: 14px; height: 14px; }
 
         footer {
             text-align: center;
@@ -492,12 +534,22 @@
                 <p class="hint">Include app name & device model for faster help.</p>
             </div>
 
-            <div class="coffee-box">
-                <p>Enjoying the apps?</p>
-                <a href="https://buymeacoffee.com/winterforest" class="coffee-btn" target="_blank" rel="noopener">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.5 3H6c-1.1 0-2 .9-2 2v5.71c0 3.83 2.95 7.18 6.78 7.29 3.96.12 7.22-3.06 7.22-7v-1h.5c1.93 0 3.5-1.57 3.5-3.5S20.43 3 18.5 3zM16 8.99c0 2.2-1.8 3.99-3.99 3.99-2.2 0-4-1.8-4-4V5h8v3.99zm2.5-1.99h-1.5v-2h1.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5zM2 19h20v2H2v-2z"/></svg>
-                    Buy Me a Coffee
-                </a>
+            <div class="side-stack">
+                <div class="coffee-box">
+                    <p>Enjoying the apps?</p>
+                    <a href="https://buymeacoffee.com/winterforest" class="coffee-btn" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.5 3H6c-1.1 0-2 .9-2 2v5.71c0 3.83 2.95 7.18 6.78 7.29 3.96.12 7.22-3.06 7.22-7v-1h.5c1.93 0 3.5-1.57 3.5-3.5S20.43 3 18.5 3zM16 8.99c0 2.2-1.8 3.99-3.99 3.99-2.2 0-4-1.8-4-4V5h8v3.99zm2.5-1.99h-1.5v-2h1.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5zM2 19h20v2H2v-2z"/></svg>
+                        Buy Me a Coffee
+                    </a>
+                </div>
+
+                <div class="youtube-box">
+                    <p>App Demos</p>
+                    <a href="https://www.youtube.com/@winterforest1538" class="youtube-btn" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        YouTube
+                    </a>
+                </div>
             </div>
         </div>
 
