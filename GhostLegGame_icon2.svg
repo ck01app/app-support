@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+
+    <!-- 2. 主 App Icon 面板漸層 -->
+    <linearGradient id="iconBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00cd6d" />
+      <stop offset="45%" stop-color="#008cb5" />
+      <stop offset="100%" stop-color="#034bc4" />
+    </linearGradient>
+
+    <!-- 3. 白色常規線條的立體陰影與發光濾鏡 -->
+    <filter id="whiteGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.3" result="shadow"/>
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="shadow" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- 4. 綠色追蹤線的霓虹強光濾鏡 -->
+    <filter id="greenNeon" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.4" result="shadow"/>
+      <feGaussianBlur stdDeviation="10" result="blur1" />
+      <feGaussianBlur stdDeviation="3" result="blur2" />
+      <feMerge>
+        <feMergeNode in="shadow" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- 5. 金色星星的色彩漸層 -->
+    <linearGradient id="starGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff880" />
+      <stop offset="40%" stop-color="#ffb627" />
+      <stop offset="100%" stop-color="#ff7f00" />
+    </linearGradient>
+
+    <!-- 6. 星星周圍的環境光暈 -->
+    <radialGradient id="starGlowBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffbe1a" stop-opacity="0.7" />
+      <stop offset="50%" stop-color="#ff8c00" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#ff8c00" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- ==================== 1. 背景層 ==================== -->
+  <rect width="512" height="512" fill="url(#bgGradient)" />
+
+  <!-- ==================== 2. 主 App Icon 面板 ==================== -->
+  <rect x="76" y="76" width="360" height="360" rx="88" fill="url(#iconBg)" />
+
+  <!-- ==================== 3. 鬼腳圖底圖（完全置中，X座標：170, 213, 256, 299, 342） ==================== -->
+  <g fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.35" filter="url(#whiteGlow)">
+    <!-- 5 條精準置中的垂直主線 -->
+    <line x1="170" y1="135" x2="170" y2="355" />
+    <line x1="213" y1="135" x2="213" y2="355" />
+    <line x1="256" y1="135" x2="256" y2="355" />
+    <line x1="299" y1="135" x2="299" y2="355" />
+    <line x1="342" y1="135" x2="342" y2="355" />
+
+    <!-- 重新配置的水平橫線（避開綠線順行路徑，同時確保干擾感） -->
+    <line x1="170" y1="165" x2="213" y2="165" />
+    <line x1="256" y1="175" x2="299" y2="175" /> <!-- 綠線轉彎點 1 -->
+    <line x1="213" y1="210" x2="256" y2="210" />
+    <line x1="299" y1="230" x2="342" y2="230" /> <!-- 綠線轉彎點 2 -->
+    <line x1="170" y1="260" x2="213" y2="260" />
+    <line x1="213" y1="300" x2="256" y2="300" />
+    <line x1="256" y1="330" x2="299" y2="330" />
+    <line x1="170" y1="335" x2="213" y2="335" />
+  </g>
+
+  <!-- ==================== 4. 綠色追蹤高亮線條（嚴格正確路線） ==================== -->
+  <!-- 
+    【 100% 正確鬼腳圖規則追蹤驗證 】：
+    1. 從 Line 3 (256) 頂端南下。
+    2. 在 Y=175 迎面撞上橫線，【強制右轉】切換到 Line 4 (299)。
+    3. 沿 Line 4 (299) 繼續南下。
+    4. 在 Y=230 迎面撞上橫線，【強制右轉】切換到 Line 5 (342)。
+    5. 沿 Line 5 (342) 一路南下，沿途完全沒有任何其他橫線干擾。
+    6. 順利直達底部 Y=365，精準直擊終點星星！
+  -->
+  <g fill="none" stroke="#22ff92" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#greenNeon)">
+    <path d="M 256,135 
+             L 256,175 
+             L 299,175 
+             L 299,230 
+             L 342,230 
+             L 342,365" />
+  </g>
+
+  <!-- ==================== 5. 右下角最後位置星星與環境光暈 ==================== -->
+  <circle cx="342" cy="385" r="55" fill="url(#starGlowBg)" />
+
+  <g filter="url(#whiteGlow)">
+    <polygon points="342,371 347.5,382.5 360,383.5 350.5,392.5 353.5,405 342,398 330.5,405 333.5,392.5 324,383.5 336.5,382.5" fill="url(#starGradient)" />
+  </g>
+</svg>

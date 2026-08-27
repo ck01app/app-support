@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 500" width="1024" height="500">
+  <defs>
+    <!-- Background color matching the image cream hue -->
+    <rect id="bg" width="1024" height="500" fill="#f5f0e8" />
+
+    <!-- Clean drop shadow for pieces -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="3" flood-color="#000000" flood-opacity="0.3" />
+    </filter>
+
+    <!-- Deep floating shadow for the falling red piece -->
+    <filter id="dropShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="6" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+
+    <!-- Label box drop shadow -->
+    <filter id="tagShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <!-- 1. Canvas Background -->
+  <use href="#bg" />
+
+  <!-- ==================== LEFT SIDE: TEXT & FEATURES ==================== -->
+  <g transform="translate(60, 0)">
+    <!-- Game Titles -->
+    <text x="0" y="115" font-family="'Segoe UI', 'Microsoft JhengHei', sans-serif" font-size="58" font-weight="900" fill="#1c2d3d" letter-spacing="2">地心吸力過三關</text>
+    <text x="0" y="170" font-family="'Segoe UI', 'Helvetica Neue', sans-serif" font-size="32" font-weight="800" fill="#1c2d3d" letter-spacing="1">Gravity Tic-Tac-Toe</text>
+    
+    <!-- Highlights Blocks -->
+    <g transform="translate(0, 225)">
+      <!-- Feature 1: No Login -->
+      <g filter="url(#tagShadow)">
+        <rect x="0" y="0" width="480" height="60" rx="16" fill="#ffffff" />
+        <text x="24" y="38" font-family="'Segoe UI', 'Microsoft JhengHei', sans-serif" font-size="20" font-weight="800" fill="#27ae60">⚡ 無需登入 / No Login Required</text>
+      </g>
+      <!-- Feature 2: No Popup Ads -->
+      <g transform="translate(0, 80)" filter="url(#tagShadow)">
+        <rect x="0" y="0" width="480" height="60" rx="16" fill="#ffffff" />
+        <text x="24" y="38" font-family="'Segoe UI', 'Microsoft JhengHei', sans-serif" font-size="20" font-weight="800" fill="#e74c3c">🎬 無彈出廣告 / No Popup Ads</text>
+      </g>
+    </g>
+
+    <!-- Sub-description emphasizing Unbeatable AI -->
+    <g transform="translate(0, 420)">
+      <text x="0" y="0" font-family="'Segoe UI', 'Microsoft JhengHei', sans-serif" font-size="18" font-weight="800" fill="#c0392b">🔥 挑戰不可能：零敗局的終極 AI 玩家！</text>
+      <text x="0" y="26" font-family="'Segoe UI', sans-serif" font-size="16" font-style="italic" font-weight="700" fill="#7f8c8d">Can you beat the unbeatable? Test your logic now.</text>
+    </g>
+  </g>
+
+  <!-- ==================== RIGHT SIDE: EXACT SNAPSHOT BOARD ==================== -->
+  <!-- Shifted and scaled to display nicely inside 1024x500 marketing banner -->
+  <g transform="translate(640, -15)">
+    <!-- Board Base (Matches image dark blue-grey slot container) -->
+    <path d="M 0 40 L 320 40 L 320 490 A 24 24 0 0 1 296 514 L 24 514 A 24 24 0 0 1 0 490 Z" fill="#1c2d3d" />
+
+    <!-- Grid Columns: X coordinates => Left(54), Middle(160), Right(266) -->
+    <!-- Grid Rows: Y coordinates => R1(100), R2(195), R3(290), R4(385), R5(465) -->
+    <g>
+      <!-- Row 1 (Top Row) -->
+      <circle cx="54" cy="100" r="38" fill="#111c26" />
+      <circle cx="160" cy="100" r="38" fill="#f1c40f" filter="url(#shadow)" />
+      <circle cx="266" cy="100" r="38" fill="#111c26" />
+
+      <!-- Row 2 (Crucial Row) -->
+      <!-- Left Column slot is technically empty backdrop because the piece is dropping down into it -->
+      <circle cx="54" cy="195" r="38" fill="#111c26" />
+      <circle cx="160" cy="195" r="38" fill="#e74c3c" filter="url(#shadow)" />
+      <circle cx="266" cy="195" r="38" fill="#111c26" />
+
+      <!-- Row 3 -->
+      <circle cx="54" cy="290" r="38" fill="#f1c40f" filter="url(#shadow)" />
+      <circle cx="160" cy="290" r="38" fill="#e74c3c" filter="url(#shadow)" />
+      <circle cx="266" cy="290" r="38" fill="#e74c3c" filter="url(#shadow)" />
+
+      <!-- Row 4 -->
+      <circle cx="54" cy="385" r="38" fill="#f1c40f" filter="url(#shadow)" />
+      <circle cx="160" cy="385" r="38" fill="#f1c40f" filter="url(#shadow)" />
+      <circle cx="266" cy="385" r="38" fill="#e74c3c" filter="url(#shadow)" />
+
+      <!-- ==================== VISUAL EFFECTS & FALLING PIECE ==================== -->
+      
+      <!-- Red dropping alignment path (vertical line from column 1 top) -->
+      <line x1="54" y1="45" x2="54" y2="155" stroke="#e74c3c" stroke-width="3" stroke-dasharray="6 5" opacity="0.5" stroke-linecap="round" />
+      
+      <!-- Falling red piece shadow -->
+      <circle cx="54" cy="165" r="38" fill="#000000" filter="url(#dropShadow)" />
+      
+      <!-- The winning red piece exactly midway falling down into row 2 slot -->
+      <circle cx="54" cy="165" r="38" fill="#e74c3c" />
+      
+      <!-- Small centered white downward tracking arrow inside the falling piece -->
+      <path d="M 54 172 L 48 164 L 51 164 L 51 156 L 57 156 L 57 164 L 60 164 Z" fill="#ffffff" opacity="0.8" />
+
+      <!-- Diagonal white winning connection line (Row 2 Left -> Row 3 Mid -> Row 4 Right) -->
+      <line x1="54" y1="165" x2="266" y2="385" stroke="#ffffff" stroke-width="4" stroke-dasharray="8 5" stroke-linecap="round" opacity="0.45" />
+    </g>
+  </g>
+</svg>

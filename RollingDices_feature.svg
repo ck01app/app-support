@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 500" width="1024" height="500">
+  <defs>
+    <!-- Seamless matching green theme gradient landscape -->
+    <linearGradient id="bgGreenTheme" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A2214" />
+      <stop offset="50%" stop-color="#144226" />
+      <stop offset="100%" stop-color="#0A2214" />
+    </linearGradient>
+    <!-- Phone screen internal app background -->
+    <linearGradient id="appScreenBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#115E59" />
+      <stop offset="100%" stop-color="#0F766E" />
+    </linearGradient>
+    <!-- Dynamic Blue style for the layout button mockup -->
+    <linearGradient id="shakeBtnGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E88E5" />
+      <stop offset="100%" stop-color="#1565C0" />
+    </linearGradient>
+    <!-- Sharp drop shadow for the dice layouts -->
+    <filter id="diceShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="2" stdDeviation="1" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Global Canvas Background -->
+  <rect width="1024" height="500" fill="url(#bgGreenTheme)"/>
+  
+  <!-- Radial spotlight glow accenting the screen presentation area -->
+  <circle cx="160" cy="250" r="320" fill="#198754" opacity="0.35" filter="blur(30px)"/>
+
+  <!-- ==================== LEFT HALF: IN-GAME PHONE MOCKUP ==================== -->
+  <g transform="translate(135, 255) rotate(-5) translate(-110, -210)">
+     <!-- Outer phone frame casing shadow -->
+     <rect x="-6" y="8" width="226" height="426" rx="36" fill="#000000" opacity="0.6"/>
+     <!-- Hardware Bezel Profile -->
+     <rect x="0" y="0" width="220" height="420" rx="34" fill="#0F172A" stroke="#475569" stroke-width="3"/>
+     <!-- 📲 In-App Interface Screen Content Screen -->
+     <rect x="8" y="8" width="204" height="404" rx="26" fill="url(#appScreenBg)"/>
+     
+     <!-- Pale Green, Nearly White Circular Dice Plate Surface -->
+     <circle cx="110" cy="180" r="82" fill="#F0FDF4" stroke="#DCFCE7" stroke-width="2.5"/>
+     
+     <!-- ==================== 6 CHINESE WHITE DICE ON THE PLATE ==================== -->
+     <!-- Die 1: Showing 1 (Center Red Pip) -->
+     <g transform="translate(82, 142) rotate(15)" filter="url(#diceShadow)">
+       <rect x="-10" y="-10" width="20" height="20" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.5"/>
+       <circle cx="0" cy="0" r="3.5" fill="#DC2626"/>
+     </g>
+     
+     <!-- Die 2: Showing 4 (Red Pips) -->
+     <g transform="translate(112, 140) rotate(-20)" filter="url(#diceShadow)">
+       <rect x="-10" y="-10" width="20" height="20" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.5"/>
+       <circle cx="-4" cy="-4" r="1.8" fill="#DC2626"/>
+       <circle cx="4" cy="-4" r="1.8" fill="#DC2626"/>
+       <circle cx="-4" cy="4" r="1.8" fill="#DC2626"/>
+       <circle cx="4" cy="4" r="1.8" fill="#DC2626"/>
+     </g>
+
+     <!-- Die 3: Showing 6 (Black Pips) -->
+     <g transform="translate(142, 160) rotate(5)" filter="url(#diceShadow)">
+       <rect x="-10" y="-10" width="20" height="20" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.5"/>
+       <circle cx="-4" cy="-5" r="1.5" fill="#1E293B"/>
+       <circle cx="-4" cy="0" r="1.5" fill="#1E293B"/>
+       <circle cx="-4" cy="5" r="1.5" fill="#1E293B"/>
+       <circle cx="4" cy="-5" r="1.5" fill="#1E293B"/>
+       <circle cx="4" cy="0" r="1.5" fill="#1E293B"/>
+       <circle cx="4" cy="5" r="1.5" fill="#1E293B"/>
+     </g>
+
+     <!-- Die 4: Showing 2 (Black Pips) -->
+     <g transform="translate(78, 178) rotate(-35)" filter="url(#diceShadow)">
+       <rect x="-10" y="-10" width="20" height="20" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.5"/>
+       <circle cx="-4" cy="-4" r="1.6" fill="#1E293B"/>
+       <circle cx="4" cy="4" r="1.6" fill="#1E293B"/>
+     </g>
+
+     <!-- Die 5: Showing 3 (Black Pips) -->
+     <g transform="translate(110, 182) rotate(45)" filter="url(#diceShadow)">
+       <rect x="-10" y="-10" width="20" height="20" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.5"/>
+       <circle cx="-4" cy="-4" r="1.6" fill="#1E293B"/>
+       <circle cx="0" cy="0" r="1.6" fill="#1E293B"/>
+       <circle cx="4" cy="4" r="1.6" fill="#1E293B"/>
+     </g>
+
+     <!-- Die 6: Showing 5 (Black/Red Mix) -->
+     <g transform="translate(136, 208) rotate(12)" filter="url(#diceShadow)">
+       <rect x="-10" y="-10" width="20" height="20" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.5"/>
+       <circle cx="-4" cy="-4" r="1.5" fill="#1E293B"/>
+       <circle cx="4" cy="-4" r="1.5" fill="#1E293B"/>
+       <circle cx="0" cy="0" r="2" fill="#DC2626"/>
+       <circle cx="-4" cy="4" r="1.5" fill="#1E293B"/>
+       <circle cx="4" cy="4" r="1.5" fill="#1E293B"/>
+     </g>
+
+     <!-- Bottom App Action Button Row Layout Panel Mockup -->
+     <rect x="20" y="325" width="180" height="42" rx="12" fill="url(#shakeBtnGrad)"/>
+     <text x="110" y="352" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">🔄 Shake</text>
+  </g>
+
+  <!-- ==================== RIGHT HALF: MAIN WORDING BLOCK (Shifted Up slightly to fit new line) ==================== -->
+  <g transform="translate(340, 105)">
+     <!-- 1. Main Headings -->
+     <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="900" fill="#FFFFFF" letter-spacing="1.5">ROLLING DICES / 搖骰仔</text>
+     
+     <!-- 2. Taglines -->
+     <text x="2" y="44" font-family="system-ui, -apple-system, sans-serif" font-size="25" font-weight="700" fill="#4ADE80" letter-spacing="0.5">Shake, Roll &amp; Win! / 輕鬆搖號 真實體驗</text>
+     
+     <!-- Structural divider line -->
+     <line x1="2" y1="75" x2="630" y2="75" stroke="#16A34A" stroke-width="2.5" opacity="0.6" />
+
+     <!-- 3. Feature Highlights Layout -->
+     <g transform="translate(0, 110)">
+        <!-- NEW LINE ADDED HERE: Game Suitability & Replacement Case -->
+        <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="21" font-weight="700" fill="#38BDF8">🎲 Best Choice for Liar's Dice &amp; Party Games</text>
+        <text x="26" y="26" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="500" fill="#CBD5E1">大話骰、聚會遊戲首選 • 完美替代遺失的實體骰子</text>
+
+        <!-- Bullet 2: Core Physics Description -->
+        <g transform="translate(0, 62)">
+           <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="21" font-weight="700" fill="#F8FAFC">✓ Continuous 3D Motion-Sensing Engine</text>
+           <text x="26" y="26" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="500" fill="#CBD5E1">精準連續搖晃動作識別，模擬真實搖骰手感</text>
+        </g>
+
+        <!-- Bullet 3: Privacy Guarantee -->
+        <g transform="translate(0, 124)">
+           <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#FACC15" letter-spacing="0.5">🔒 No Login • No Access Requests • No Pop-up Ads</text>
+           <text x="26" y="26" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#A7F3D0">無需登入 • 零權限申請 • 絕無彈窗廣告干擾</text>
+        </g>
+     </g>
+  </g>
+</svg>

@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- 淺木紋方格主漸層 -->
+    <linearGradient id="woodBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDF1D3" />
+      <stop offset="50%" stop-color="#F2DFB3" />
+      <stop offset="100%" stop-color="#E1CDA3" />
+    </linearGradient>
+
+    <!-- 木質縱向紋理 -->
+    <linearGradient id="grainGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#A58448" stop-opacity="0.1" />
+      <stop offset="50%" stop-color="#A58448" stop-opacity="0.0" />
+      <stop offset="100%" stop-color="#A58448" stop-opacity="0.1" />
+    </linearGradient>
+
+    <!-- 方格立體凹槽陰影 -->
+    <filter id="gridGroove" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="1" dy="1" stdDeviation="1" flood-color="#FFF" flood-opacity="0.3" result="shadow1"/>
+      <feDropShadow dx="-1" dy="-1" stdDeviation="1" flood-color="#735218" flood-opacity="0.4" result="shadow2"/>
+      <feMerge>
+        <feMergeNode in="shadow2"/>
+        <feMergeNode in="shadow1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- 棋子 X 的立體投影 -->
+    <filter id="pieceShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="2.5" stdDeviation="1.5" flood-color="#4A3410" flood-opacity="0.5" />
+    </filter>
+
+    <!-- 亮黃色分數的黃金漸層 -->
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="30%" stop-color="#FFF37A" />
+      <stop offset="100%" stop-color="#F2A200" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. App 圖標圓角木質底盤 -->
+  <rect width="512" height="512" rx="112" fill="url(#woodBase)" stroke="#A67E37" stroke-width="4" />
+
+  <!-- 2. 自然縱向木紋肌理 -->
+  <path d="M 60,0 Q 80,200 50,512 M 180,0 Q 160,150 190,512 M 310,0 Q 340,300 300,512 M 440,0 Q 420,250 460,512" fill="none" stroke="#A58448" stroke-width="2" opacity="0.15" />
+  <rect width="512" height="512" rx="112" fill="url(#grainGrad)" pointer-events="none" />
+
+  <!-- 3. 9x9 方格網格 (居中，邊距 40) -->
+  <g stroke="#61461B" stroke-width="3.5" stroke-linecap="square" opacity="0.6" filter="url(#gridGroove)">
+    <!-- 橫向線 10 條 --><line x1="40" y1="40" x2="472" y2="40" /><line x1="40" y1="88" x2="472" y2="88" /><line x1="40" y1="136" x2="472" y2="136" /><line x1="40" y1="184" x2="472" y2="184" /><line x1="40" y1="232" x2="472" y2="232" /><line x1="40" y1="280" x2="472" y2="280" /><line x1="40" y1="328" x2="472" y2="328" /><line x1="40" y1="376" x2="472" y2="376" /><line x1="40" y1="424" x2="472" y2="424" /><line x1="40" y1="472" x2="472" y2="472" />
+    <!-- 縱向線 10 條 --><line x1="40" y1="40" x2="40" y2="472" /><line x1="88" y1="40" x2="88" y2="472" /><line x1="136" y1="40" x2="136" y2="472" /><line x1="184" y1="40" x2="184" y2="472" /><line x1="232" y1="40" x2="232" y2="472" /><line x1="280" y1="40" x2="280" y2="472" /><line x1="328" y1="40" x2="328" y2="472" /><line x1="376" y1="40" x2="376" y2="472" /><line x1="424" y1="40" x2="424" y2="472" /><line x1="472" y1="40" x2="472" y2="472" />
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 4. 散落周邊的普通黑色「X」棋子 (保持局面的豐富度，全部統一深黑色 #0F0F0F) -->
+  <!-- ========================================== -->
+  <g filter="url(#pieceShadow)" stroke="#0F0F0F" stroke-width="9.5" stroke-linecap="round" opacity="0.8">
+    <!-- 頂部與周邊散落子 -->
+    <line x1="50" y1="50" x2="78" y2="78" /><line x1="78" y1="50" x2="50" y2="78" />
+    <line x1="146" y1="50" x2="174" y2="78" /><line x1="174" y1="50" x2="146" y2="78" />
+    <line x1="242" y1="50" x2="270" y2="78" /><line x1="270" y1="50" x2="242" y2="78" />
+    <line x1="290" y1="98" x2="318" y2="126" /><line x1="318" y1="98" x2="290" y2="126" />
+    <line x1="146" y1="146" x2="174" y2="174" /><line x1="174" y1="146" x2="146" y2="174" />
+    <line x1="338" y1="146" x2="366" y2="174" /><line x1="366" y1="146" x2="338" y2="174" />
+    <line x1="290" y1="194" x2="318" y2="222" /><line x1="318" y1="194" x2="290" y2="222" />
+    <line x1="50" y1="242" x2="78" y2="270" /><line x1="78" y1="242" x2="50" y2="270" />
+    <!-- 下部散落子 -->
+    <line x1="146" y1="386" x2="174" y2="414" /><line x1="174" y1="386" x2="146" y2="414" />
+    <line x1="242" y1="386" x2="270" y2="414" /><line x1="270" y1="386" x2="242" y2="414" />
+    <line x1="338" y1="386" x2="366" y2="414" /><line x1="366" y1="386" x2="338" y2="414" />
+    <line x1="98" y1="434" x2="126" y2="462" /><line x1="126" y1="434" x2="98" y2="462" />
+    <line x1="194" y1="434" x2="222" y2="462" /><line x1="222" y1="434" x2="194" y2="462" />
+    <line x1="290" y1="434" x2="318" y2="462" /><line x1="318" y1="434" x2="290" y2="462" />
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 5. 核心計分連線：全部使用完全一致的純黑色 (#0F0F0F) -->
+  <!-- ========================================== -->
+  <g filter="url(#pieceShadow)" stroke="#0F0F0F" stroke-width="11.5" stroke-linecap="round">
+    <!-- 【🆕 3連線】左側縱向列 (Col 2, Row 2-4) -->
+    <line x1="98" y1="98" x2="126" y2="126" /><line x1="126" y1="98" x2="98" y2="126" />
+    <line x1="98" y1="146" x2="126" y2="174" /><line x1="126" y1="146" x2="98" y2="174" />
+    <line x1="98" y1="194" x2="126" y2="222" /><line x1="126" y1="194" x2="98" y2="222" />
+
+    <!-- 【6連線】中部橫向行 (Col 2-7, Row 6) -->
+    <line x1="98" y1="290" x2="126" y2="318" /><line x1="126" y1="290" x2="98" y2="318" />
+    <line x1="146" y1="290" x2="174" y2="318" /><line x1="174" y1="290" x2="146" y2="318" />
+    <line x1="194" y1="290" x2="222" y2="318" /><line x1="222" y1="290" x2="194" y2="318" />
+    <line x1="242" y1="290" x2="270" y2="318" /><line x1="270" y1="290" x2="242" y2="318" />
+    <line x1="290" y1="290" x2="318" y2="318" /><line x1="318" y1="290" x2="290" y2="318" />
+    <line x1="338" y1="290" x2="366" y2="318" /><line x1="366" y1="290" x2="338" y2="318" />
+
+    <!-- 【9連線】最右側一整列縱向排滿 (Col 9, Row 1-9) -->
+    <line x1="434" y1="50" x2="462" y2="78" /><line x1="462" y1="50" x2="434" y2="78" />
+    <line x1="434" y1="98" x2="462" y2="126" /><line x1="462" y1="98" x2="434" y2="126" />
+    <line x1="434" y1="146" x2="462" y2="174" /><line x1="462" y1="146" x2="434" y2="174" />
+    <line x1="434" y1="194" x2="462" y2="222" /><line x1="462" y1="194" x2="434" y2="222" />
+    <line x1="434" y1="242" x2="462" y2="270" /><line x1="462" y1="242" x2="434" y2="270" />
+    <line x1="434" y1="290" x2="462" y2="318" /><line x1="462" y1="290" x2="434" y2="318" />
+    <line x1="434" y1="338" x2="462" y2="366" /><line x1="462" y1="338" x2="434" y2="366" />
+    <line x1="434" y1="386" x2="462" y2="414" /><line x1="462" y1="386" x2="434" y2="414" />
+    <line x1="434" y1="434" x2="462" y2="462" /><line x1="462" y1="434" x2="434" y2="462" />
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 6. ⚡ 耀眼的黃色 Crossout Lines (100% 顯現) ⚡ -->
+  <!-- ========================================== -->
+  <!-- [3連線黃線] 縱向刺穿左側 3 個 X -->
+  <line x1="112" y1="85" x2="112" y2="235" stroke="#FF8C00" stroke-width="12" stroke-linecap="round" opacity="0.4" />
+  <line x1="112" y1="85" x2="112" y2="235" stroke="#FFEA00" stroke-width="8.5" stroke-linecap="round" />
+  <line x1="112" y1="85" x2="112" y2="235" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity="0.9" />
+
+  <!-- [6連線黃線] 橫向精準刺穿 6 個 X -->
+  <line x1="85" y1="304" x2="380" y2="304" stroke="#FF8C00" stroke-width="13" stroke-linecap="round" opacity="0.4" />
+  <line x1="85" y1="304" x2="380" y2="304" stroke="#FFEA00" stroke-width="9" stroke-linecap="round" />
+  <line x1="85" y1="304" x2="380" y2="304" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.95" />
+
+  <!-- [9連線黃線] 縱向精準刺穿 9 個 X -->
+  <line x1="448" y1="35" x2="448" y2="475" stroke="#FF8C00" stroke-width="14" stroke-linecap="round" opacity="0.4" />
+  <line x1="448" y1="35" x2="448" y2="475" stroke="#FFEA00" stroke-width="9.5" stroke-linecap="round" />
+  <line x1="448" y1="35" x2="448" y2="475" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.95" />
+
+
+  <!-- ========================================== -->
+  <!-- 7. 🎯 分數直接疊加在各自的連線中央 (完美融合) 🎯 -->
+  <!-- ========================================== -->
+  <!-- 【+3 分數】疊加在 3連線正中央 (Row 3 位置) -->
+  <text x="112" y="174" font-family="Arial Black, Impact, sans-serif" font-size="42" font-weight="900" fill="url(#goldText)" stroke="#543200" stroke-width="4" text-anchor="middle">+3</text>
+
+  <!-- 【+6 分數】疊加在 6連線正中央 (Col 4-5 中間) -->
+  <text x="232" y="322" font-family="Arial Black, Impact, sans-serif" font-size="62" font-weight="900" fill="url(#goldText)" stroke="#6B4100" stroke-width="5" text-anchor="middle">+6</text>
+
+  <!-- 【+9 分數】疊加在 9連線正中央 (Row 5 位置) -->
+  <text x="448" y="272" font-family="Arial Black, Impact, sans-serif" font-size="58" font-weight="900" fill="url(#goldText)" stroke="#6B4100" stroke-width="5" text-anchor="middle">+9</text>
+
+</svg>

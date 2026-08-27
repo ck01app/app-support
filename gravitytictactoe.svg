@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- 整體 App Icon 背景：溫和的米白色（對齊圖片外圍） -->
+    <rect id="appBg" width="512" height="512" rx="96" fill="#f5f0e8" />
+
+    <!-- 棋子凸起陰影：乾淨俐落的微立體陰影 -->
+    <filter id="pieceShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.3" />
+    </filter>
+
+    <!-- 棋子下落時的動態懸空大陰影（位置稍偏下且更模糊） -->
+    <filter id="fallingShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="6" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+
+    <!-- 棋盤外框的大柔和陰影 -->
+    <filter id="boardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- 1. 應用程式背景 -->
+  <use href="#appBg" />
+
+  <!-- 2. 藍黑色棋盤主體（置中對齊，底部帶圓角） -->
+  <g filter="url(#boardShadow)">
+    <path d="M 96 0 L 416 0 L 416 460 A 32 32 0 0 1 384 492 L 128 492 A 32 32 0 0 1 96 460 Z" fill="#223345" />
+  </g>
+
+  <!-- 3. 棋盤孔洞與棋子佈局（依照 image_e9c286.png 精確繪製） -->
+  <!-- 每列中心點 X: 左(160), 中(256), 右(352) -->
+  <!-- 每層中心點 Y: 從上到下為 64, 164, 264, 364, 444 (底部間距微調符合原圖比例) -->
+  <g>
+    <!-- ==================== 第 1 層（最頂層） ==================== -->
+    <!-- 左：空孔 --> <circle cx="160" cy="64" r="44" fill="#15212d" />
+    <!-- 中：黃子 --> <circle cx="256" cy="64" r="44" fill="#f1c40f" filter="url(#pieceShadow)" />
+    <!-- 右：空孔 --> <circle cx="352" cy="64" r="44" fill="#15212d" />
+
+    <!-- ==================== 第 2 層（下落中的關鍵層） ==================== -->
+    <!-- 左：原本是空的孔洞 --> 
+    <circle cx="160" cy="164" r="44" fill="#15212d" />
+    
+    <!-- 中：紅子 --> <circle cx="256" cy="164" r="44" fill="#e74c3c" filter="url(#pieceShadow)" />
+    <!-- 右：空孔 --> <circle cx="352" cy="164" r="44" fill="#15212d" />
+
+    <!-- ==================== 第 3 層 ==================== -->
+    <!-- 左：黃子 --> <circle cx="160" cy="264" r="44" fill="#f1c40f" filter="url(#pieceShadow)" />
+    <!-- 中：紅子 --> <circle cx="256" cy="264" r="44" fill="#e74c3c" filter="url(#pieceShadow)" />
+    <!-- 右：紅子 --> <circle cx="352" cy="264" r="44" fill="#e74c3c" filter="url(#pieceShadow)" />
+
+    <!-- ==================== 第 4 層（最底層） ==================== -->
+    <!-- 左：黃子 --> <circle cx="160" cy="364" r="44" fill="#f1c40f" filter="url(#pieceShadow)" />
+    <!-- 中：黃子 --> <circle cx="256" cy="364" r="44" fill="#f1c40f" filter="url(#pieceShadow)" />
+    <!-- 右：紅子 --> <circle cx="352" cy="364" r="44" fill="#e74c3c" filter="url(#pieceShadow)" />
+
+
+    <!-- ==================== 動態重頭戲 ==================== -->
+    <!-- 5. 左側正在往下掉落、即將達成斜向勝利的紅子 -->
+    <!-- 淡淡的下落動態虛線軌跡 -->
+    <line x1="160" y1="20" x2="160" y2="120" stroke="#e74c3c" stroke-width="4" stroke-dasharray="8 6" opacity="0.4" stroke-linecap="round" />
+    
+    <!-- 懸空棋子的陰影（往下方投射） -->
+    <circle cx="160" cy="134" r="44" fill="#000000" filter="url(#fallingShadow)" />
+    
+    <!-- 差不多快要掉落到第 2 層格子上的紅色絕殺棋子（卡在 Y=134 的動態位置） -->
+    <circle cx="160" cy="134" r="44" fill="#e74c3c" />
+    
+    <!-- 精緻的小箭頭：提示地心引力向下的動態感 -->
+    <path d="M 160 144 L 152 134 L 157 134 L 157 122 L 163 122 L 163 134 L 168 134 Z" fill="#ffffff" opacity="0.6" />
+  </g>
+</svg>

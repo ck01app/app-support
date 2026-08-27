@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CK01 App Support</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%234f46e5'/><rect x='20' y='20' width='25' height='25' rx='6' fill='white'/><rect x='55' y='20' width='25' height='25' rx='6' fill='white' opacity='0.7'/><rect x='20' y='55' width='25' height='25' rx='6' fill='white' opacity='0.7'/><rect x='55' y='55' width='25' height='25' rx='6' fill='white' opacity='0.4'/></svg>">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --bg: #f1f5f9;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            font-size: 21px;   /* default is usually 16px */
+        }
+
+        .container {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+
+        /* Compact Header */
+        header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brand-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .brand-icon svg { width: 20px; height: 20px; }
+
+        header h1 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        header p {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: -2px;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .apps-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .app-card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 0.875rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            transition: box-shadow 0.15s ease;
+        }
+
+        .app-card:hover { box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+
+        .app-icon-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+            background: #e2e8f0;
+        }
+
+        .app-icon-placeholder {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+        }
+
+        .app-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .app-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .app-platform {
+            font-size: 0.7rem;
+            color: var(--muted);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .store-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border: 1px solid;
+            transition: all 0.15s ease;
+        }
+
+        .store-btn svg { width: 13px; height: 13px; }
+
+        /* Apple Store — official black badge style */
+        .apple-store {
+            background: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+        .apple-store:hover { background: #1a1a1a; }
+
+        /* Google Play — white with colored icon */
+        .google-play {
+            background: #ffffff;
+            color: #1f2937;
+            border-color: #d1d5db;
+        }
+        .google-play:hover { background: #f9fafb; border-color: #9ca3af; }
+
+        
+        .store-btn:has(img) { background: none !important; border: none !important; padding: 0 !important; }
+        .store-btn img { height: 28px; display: block; border-radius: 6px; }
+        .coming-soon-badge {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--muted);
+            background: #f1f5f9;
+            border: 1px dashed #cbd5e1;
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        @media (min-width: 640px) {
+            .footer-grid { grid-template-columns: 2fr 1fr; }
+        }
+
+        .support-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .support-box h2 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .support-box p {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .hint {
+            margin-top: 0.5rem;
+            font-size: 0.7rem;
+            color: var(--muted);
+            font-style: italic;
+        }
+        /* Side Stack (Coffee + YouTube) */
+        .side-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .coffee-box {
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+            border: 1px solid #fde68a;
+            border-radius: 12px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 0.5rem;
+        }
+
+        .coffee-box p {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #92400e;
+        }
+
+        .coffee-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: #f59e0b;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.45rem 0.9rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+
+        .coffee-btn svg { width: 14px; height: 14px; }
+
+        .youtube-box {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            border: 1px solid #fecaca;
+            border-radius: 12px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 0.5rem;
+        }
+
+        .youtube-box p {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #991b1b;
+        }
+
+        .youtube-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: #dc2626;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.45rem 0.9rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            transition: background 0.15s ease;
+        }
+
+        .youtube-btn:hover { background: #b91c1c; }
+
+        .youtube-btn svg { width: 14px; height: 14px; }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem 0 0;
+            color: var(--muted);
+            font-size: 0.75rem;
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="brand-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+                    <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+                </svg>
+            </div>
+            <div>
+                <h1>CK01 App Support</h1>
+                <p>Mobile Applications</p>
+            </div>
+        </header>
+
+        <div class="section-title">My Apps</div>
+        <div class="apps-grid">
+
+            <div class="app-card">
+                <img src="GhostLeg_icon.png" alt="" class="app-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="app-icon-placeholder" style="display:none;">🎋</div>
+                <div class="app-body">
+                    <div class="app-name">Lucky Ghostleg</div>
+                    <span class="app-platform">幸運鬼腳圖 · Android</span>
+                    <div class="store-row">
+                        <a href="https://play.google.com/store/apps/details?id=com.ck01app.ghostleggame" class="store-btn google-play" target="_blank" rel="noopener"><img src="Google_Play_EN_pc.png" alt="Get it on Google Play" style="height:32px;display:block;"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <img src="RollingDices_icon.png" alt="" class="app-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="app-icon-placeholder" style="display:none;">🎲</div>
+                <div class="app-body">
+                    <div class="app-name">Rolling Dices</div>
+                    <span class="app-platform">搖骰子 · Android</span>
+                    <div class="store-row">
+                        <a href="https://play.google.com/store/apps/details?id=com.ck01app.rollingdices" class="store-btn google-play" target="_blank" rel="noopener"><img src="Google_Play_EN_pc.png" alt="Get it on Google Play" style="height:32px;display:block;"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <img src="zyymarksix.png" alt="" class="app-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="app-icon-placeholder" style="display:none;">🎯</div>
+                <div class="app-body">
+                    <div class="app-name">MarkSix AI&Luck</div>
+                    <span class="app-platform">智運贏六合彩 · iOS & Android</span>
+                    <div class="store-row">
+                        <a href="https://play.google.com/store/apps/details?id=com.ck01app.zyymarksix" class="store-btn google-play" target="_blank" rel="noopener"><img src="Google_Play_EN_pc.png" alt="Get it on Google Play" style="height:32px;display:block;"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <img src="gravitytictactoe.png" alt="" class="app-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="app-icon-placeholder" style="display:none;">⭕</div>
+                <div class="app-body">
+                    <div class="app-name">Gravity TicTacToe</div>
+                    <span class="app-platform">地心吸力過三關 · iOS & Android</span>
+                    <div class="store-row">
+                        <a href="https://apps.apple.com/hk/app/g-tictactoe/id6789797153" class="store-btn apple-store" target="_blank" rel="noopener"><img src="App_Stpre_EN_pc.png" alt="Download on the App Store" style="height:32px;display:block;"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.ck01app.gravitytictactoe" class="store-btn google-play" target="_blank" rel="noopener"><img src="Google_Play_EN_pc.png" alt="Get it on Google Play" style="height:32px;display:block;"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <img src="Connect369.png" alt="" class="app-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="app-icon-placeholder" style="display:none;">🔢</div>
+                <div class="app-body">
+                    <div class="app-name">Connect369</div>
+                    <span class="app-platform">三六九連連連 · iOS & Android</span>
+                    <div class="store-row">
+                        <a href="https://apps.apple.com/hk/app/connect-369/id6789797514" class="store-btn apple-store" target="_blank" rel="noopener"><img src="App_Stpre_EN_pc.png" alt="Download on the App Store" style="height:32px;display:block;"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.ck01app.connect369" class="store-btn google-play" target="_blank" rel="noopener"><img src="Google_Play_EN_pc.png" alt="Get it on Google Play" style="height:32px;display:block;"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <img src="aimindreader.png" alt="" class="app-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="app-icon-placeholder" style="display:none;">🃏</div>
+                <div class="app-body">
+                    <div class="app-name">AI Mind Reader</div>
+                    <span class="app-platform">AI讀心術 · iOS & Android</span>
+                    <div class="store-row">
+                        <a href="https://apps.apple.com/us/app/ai-mindreader-card-magic/id6791020242" class="store-btn apple-store" target="_blank" rel="noopener"><img src="App_Stpre_EN_pc.png" alt="Download on the App Store" style="height:32px;display:block;"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.ck01app.aimindreader" class="store-btn google-play" target="_blank" rel="noopener"><img src="Google_Play_EN_pc.png" alt="Get it on Google Play" style="height:32px;display:block;"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <img src="aimindreader2.png" alt="" class="app-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="app-icon-placeholder" style="display:none;">🃏</div>
+                <div class="app-body">
+                    <div class="app-name">AI Mind Reader 2</div>
+                    <span class="app-platform">AI讀心術2 · iOS & Android</span>
+                    <div class="store-row">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <img src="speedsolitaire.png" alt="" class="app-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="app-icon-placeholder" style="display:none;">🃏</div>
+                <div class="app-body">
+                    <div class="app-name">Speed Solitaire</div>
+                    <span class="app-platform">競速接龍 · iOS & Android</span>
+                    <div class="store-row">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-grid">
+            <div class="support-box">
+                <h2>Need Support?</h2>
+                <p>Questions, bugs, or feature requests? I usually respond within 24–48 hours.</p>
+                <a href="mailto:ck01app@gmail.com" class="email-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    ck01app@gmail.com
+                </a>
+                <p class="hint">Include app name & device model for faster help.</p>
+            </div>
+
+            <div class="side-stack">
+                <div class="coffee-box">
+                    <p>Enjoying the apps?</p>
+                    <a href="https://buymeacoffee.com/winterforest" class="coffee-btn" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.5 3H6c-1.1 0-2 .9-2 2v5.71c0 3.83 2.95 7.18 6.78 7.29 3.96.12 7.22-3.06 7.22-7v-1h.5c1.93 0 3.5-1.57 3.5-3.5S20.43 3 18.5 3zM16 8.99c0 2.2-1.8 3.99-3.99 3.99-2.2 0-4-1.8-4-4V5h8v3.99zm2.5-1.99h-1.5v-2h1.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5zM2 19h20v2H2v-2z"/></svg>
+                        Buy Me a Coffee
+                    </a>
+                </div>
+
+                <div class="youtube-box">
+                    <p>App Demos</p>
+                    <a href="https://www.youtube.com/@winterforest1538" class="youtube-btn" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            &copy; CK01 Apps. All rights reserved.
+        </footer>
+    </div>
+
+</body>
+</html>
